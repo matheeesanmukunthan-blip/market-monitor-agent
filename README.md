@@ -16,11 +16,7 @@ sf org assign permset --name Market_Monitor_Agent_PS --target-org my-org
 
 # 4. Run tests
 sf apex run test --class-names MarketAlertServiceTest ClientSegmentationServiceTest --result-format human --target-org my-org
-```
 
-## Project Structure
-
-```
 force-app/main/default/
 ├── classes/                        ← Apex classes + test classes
 ├── lwc/
