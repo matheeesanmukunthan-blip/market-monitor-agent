@@ -1,0 +1,66 @@
+<!-- marketAlertBanner.html -->
+<!-- Part 7 — Market Alert Banner LWC -->
+<!-- Place on FSC Home Page via App Builder -->
+<template>
+
+  <!-- ACTIVE ALERT STATE -->
+  <template if:true={hasAlert}>
+    <div class="alert-banner"
+         style="background:#FEF2F2;border-left:4px solid #DC2626;
+                padding:12px 16px;margin-bottom:12px;border-radius:8px;
+                box-shadow:0 1px 4px rgba(220,38,38,0.15)">
+
+      <!-- Header row -->
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div>
+          <span style="font-weight:700;color:#DC2626;font-size:15px">
+            ⚡ {alert.Index_Name__c} &nbsp;{alert.Change_Pct__c}%
+          </span>
+          <span style="color:#64748B;font-size:12px;margin-left:10px">
+            {formattedTime} IST &nbsp;·&nbsp; Severity: {alert.Severity__c}
+          </span>
+        </div>
+        <div>
+          <span style="background:#DC2626;color:white;padding:4px 12px;
+                       border-radius:20px;font-size:12px;font-weight:700">
+            {impactedCount} clients impacted
+          </span>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <lightning-button
+          label="View Impacted Clients"
+          variant="destructive-text"
+          onclick={handleViewClients}>
+        </lightning-button>
+
+        <lightning-button
+          label="Open Agentforce Chat"
+          variant="destructive"
+          onclick={handleOpenAgent}>
+        </lightning-button>
+      </div>
+    </div>
+  </template>
+
+  <!-- NO ALERT STATE -->
+  <template if:false={hasAlert}>
+    <div style="background:#F0FDF4;border-left:4px solid #16A34A;
+                padding:10px 16px;border-radius:8px;
+                font-size:13px;color:#166534;display:flex;align-items:center;gap:8px">
+      <lightning-icon icon-name="utility:check" size="x-small" style="color:#16A34A"></lightning-icon>
+      All 450 clients stable — no active market alerts
+    </div>
+  </template>
+
+  <!-- ERROR STATE -->
+  <template if:true={hasError}>
+    <div style="background:#FFFBEB;border-left:4px solid #F59E0B;
+                padding:10px 16px;border-radius:8px;font-size:13px;color:#92400E">
+      ⚠ Unable to load market alerts. Please refresh.
+    </div>
+  </template>
+
+</template>
