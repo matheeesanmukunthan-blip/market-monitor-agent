@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Market Monitor Agent — Agentforce + FSC + Data Cloud
 
 > Salesforce Agentforce Hackathon 2025
@@ -37,4 +36,4 @@ force-app/main/default/
 =======
 # market-monitor-agent
 test
->>>>>>> b478d595bf0a121f97dc48d88708b4d805b97cfe
+b478d595bf0a121f97dc48d88708b4d805b97cfe
